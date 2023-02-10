@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kj Systems</title>
+  <link rel="stylesheet" href="./style.css">
+  <!-- Bootstrap CDN Links -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <!-- AngularJs CDN Link -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+  <script src="./script.js"></script>
+</head>
+
+<body ng-app="secondApp" class="bg-white">
+  <div ng-controller="secondTaskCtrl" class="py-5 position-relative">
+    <main class="container">
+      <section id="secondTask">
+        <form name="secondForm" ng-submit="onFormSubmit()" novalidate>
+          <div class="row g-5">
+            <div class="col-lg-6 col-sm-12 card p-3">
+              <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-end">
+                      <div class="form-group my-3">
+                        <label>Name :</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                      <div class="form-group my-3">
+                        <input type="text" id="name" placeholder="Enter Name" name="name" class="form-control" ng-model="formData.name" ng-change="showValidationAlert('name')" tabindex="01" required>
+                        <!-- <span class="text-danger" ng-show="secondForm.name.$error.required && secondForm.name.$touched">Name is required</span> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-end">
+                      <div class="form-group my-3">
+                        <label>Gender :</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                      <div class="form-group my-3">
+                        <select id="gender" name="gender" class="form-control" tabindex="02" ng-model="formData.gender" ng-change="showValidationAlert('gender')" required>
+                          <option value="">--- Please Select Gender ---</option>
+                          <option value="Male">Male</option>
+                          <option value="Female">Female</option>
+                          <option value="Other">Other</option>
+                        </select>
+                        <!-- <span class="text-danger" ng-show="secondForm.gender.$error.required && secondForm.gender.$touched">Gender is required.</span> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-end">
+                      <div class="form-group my-3">
+                        <label>Date of Birth:</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8">
+                      <div class="form-group my-3">
+                        <input type="date" class="form-control" tabindex="03" style="width:35%" id="dob" name="dob" ng-model="formData.dob"  ng-change="showValidationAlert('dob')" required>
+                        <!-- <span class="text-danger" ng-show="secondForm.dob.$error.required && secondForm.dob.$touched">Date of Birth is required.</span> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12">
+                  <div class="row justify-content-center">
+                    <div class="col-lg-4 col-md-4 col-sm-4 text-end">
+                      <div class="form-group my-3">
+                        <label>Are you willing to join :</label>
+                      </div>
+                    </div>
+                    <div class="col-lg-8 col-md-8 col-sm-8 d-flex align-itmes-center">
+                      <div class="checkboxes d-flex" style="column-gap:1em;margin: auto 0;justify-content: space-between;align-items: center;">
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" tabindex="04" id="yesCheck" name="yesNoCheck" ng-model="formData.yesCheck" ng-click="yesCheckChanged()" ng-change="showValidationAlert('yesNoCheck')" ng-required="!formData.noCheck">
+                          <label class="form-check-label" for="yesCheck">Yes</label><br>
+                        </div>
+                        <div class="form-check">
+                          <input type="checkbox" class="form-check-input" tabindex="05" id="noCheck" name="yesNoCheck" ng-model="formData.noCheck" ng-click="noCheckChanged()" ng-change="showValidationAlert('yesNoCheck')" ng-required="!formData.yesCheck">
+                          <label class="form-check-label" for="noCheck">No</label><br>
+                        </div>
+                        <!-- <span class="text-danger" ng-show="secondForm.yesNoCheck.$error.required && secondForm.yesNoCheck.$touched">You must select either yes or no</span> -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-12 col-sm-12 d-flex justify-content-end">
+                  <div class="from-group" style="width:65%" ng-class="formData.noCheck ? 'showClass' : 'hideClass'">
+                    <input type="text" placeholder="Please Enter Reason for no willing" tabindex="6" id="noCheckReason" name="noCheckReason" class="form-control" ng-model="formData.noCheckReason" ng-change="showValidationAlert('noCheckReason')" ng-required="!formData.yesCheck">
+                    <!-- <span class="text-danger" ng-show="secondForm.noCheckReason.$error.required && secondForm.noCheckReason.$touched">Please Enter Reason for no willing</span> -->
+                  </div>
+                </div>
+                <div class="col-lg-12 col-md-12 col-sm-12 text-center">
+                  <div class="form-group mt-3">
+                    <button type="submit" tabindex="07" class="btn btn-success" id="btnSubmit" name="btnSubmit">Submit</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-sm-12">
+              <div class="position-relative" style="width:100%;height:100%">  
+                <div class="card p-3" ng-show="IsShowResult" style="overflow-x:auto;">
+                  <table class="table table-dark" style="margin-bottom:0px;">
+                    <thead>
+                      <tr>
+                        <th>Sl No</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Date of Birth</th>
+                        <th>Willingness to Join</th>
+                        <th>No Willingness Reason</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="data in formSubmittedData">
+                        <td>{{$index + 1}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.gender}}</td>
+                        <td>{{data.dob | date:'MM/dd/yyyy'}}</td>
+                        <td>{{data.yesCheck ? "Yes" : "No"}}</td>
+                        <td>{{data.noCheck ? data.noCheckReason : ''}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <!-- <div ng-show="submitting" class="loading">
+                  <div class="lds-ring">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
+                </div> -->
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </main>
+  </div>
+  
+</body>
+
+</html>
