@@ -1,0 +1,77 @@
+<style>
+  #personForm{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    width: 40%;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .form-control{
+    width: auto !important;
+  }
+  #personForm .personFormField{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+  }
+  #personForm .personFormField label{
+    width: 195px;
+    color: #000;
+    text-align: right;
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  #personForm .personFormField input::placeholder{
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000;
+  }
+
+  #personForm .personFormBtn{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  #personForm .personFormBtn a{
+    text-decoration: none;
+  }
+  .showClass{
+    opacity: 1;
+    transition: all 0.5s linear;
+  }
+  .hideClass{
+    opacity: 0;
+    transition: all 0.5s linear;
+  }
+</style>
+<form id="personForm" name="personForm" ng-submit="submitForm()" novalidate>
+  <div class="personFormField">
+    <label for="">Name :</label>
+    <input type="text" class="form-control" id="name" name="name" ng-model="formData.name" placeholder="Please Enter Name" required>
+  </div>
+  <div class="personFormField">
+    <label for="dob">Date of Birth :</label>
+    <input type="date" class="form-control" id="dob" name="dob" ng-model="formData.dob" placeholder="Please Enter Date of birth" required>
+  </div>
+  <div class="personFormField">
+    <label for="">Gender :</label>
+    <select type="text" class="form-control" id="gender" name="gender" ng-model="formData.gender" placeholder="Please Select Gender" required>
+      <option value="">-- Select Gender --</option>
+      <option value="Male">Male</option>
+      <option value="Female">FeMale</option>
+      <option value="Others">Others</option>
+    </select>
+  </div>
+  <div class="personFormField">
+    <label>Are you willing to join :</label>
+    <input type="checkbox" class="form-check-input" id="yesCheck" name="yesNoCheck" ng-model="formData.yesCheck" ng-change="yesCheckChanged()" ng-required="!formData.noCheck">
+    <input type="checkbox" class="form-check-input" id="noCheck" name="yesNoCheck" ng-model="formData.noCheck" ng-change="noCheckChanged()" ng-required="!formData.yesCheck">
+    <textarea type="text" class="form-control" rows="1" placeholder="Please Enter a No Check Reason" ng-class="formData.noCheck ? 'showClass' : 'hideClass'" id="noCheckReason" name="noCheckReason" ng-model="formData.noCheckReason" ng-required="!formData.yesCheck"></textarea>
+  </div>
+  <div class="personFormBtn">
+    <button type="submit" tabindex="07" class="btn btn-primary" id="btnSubmit" name="btnSubmit">Submit</button>
+    <a class="btn btn-primary" ui-sref="home">Go Back</a>
+  </div>
+</form>

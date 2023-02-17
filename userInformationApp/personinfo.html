@@ -1,0 +1,126 @@
+<style>
+  .buttonBlock{
+    display: flex;
+    column-gap: 10px;
+  }
+  .table-title h3{
+    position: relative;
+  }
+  .table-title h3::after{
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 2px;
+    background-color: #000;
+    left: 0;
+    right: 0;
+    margin: auto;
+    bottom: -2px;
+  }
+.ag-header-cell {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  vertical-align: bottom;
+  text-align: left!important;
+  display: inline-block;
+}
+.ag-header-cell-grouped {
+  height: 100%;
+}
+.ag-header-group {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  height: 100%;
+}
+.ag-header-group-cell {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: left!important;
+  height: 20%;
+  -o-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.ag-fresh .ag-header-cell{
+  padding: 0 2px !important;
+}
+.ag-fresh .ag-header-container{
+  background: rgb(43, 122, 242) !important;
+  color: #fff;
+}
+.dataImageClass{
+  display: block;
+  /* border: 2px solid #000; */
+  width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ag-paging-button{
+  background-color: #337ab7;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  color: #fff;
+}
+</style>
+  <div class="table-title">
+    <h3>User Form Data</h3>
+  </div>
+  <table class="responsiveTbl">
+    <thead class="tableHead bg-primary">
+      <tr>
+        <th>Sl No</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Image path</th>
+        <th>Willingness to Join</th>
+        <th>No Willing Reason</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="data in pagedData">
+        <td>{{$index + 1}}</td>
+        <td>{{data.name}}</td>
+        <td>{{data.dob | date:'MM/dd/yyyy'}}</td>
+        <td>{{data.gender}}</td>
+        <td><span class="dataImageClass">{{data.image}}</span></td>
+        <td>{{data.yesCheck ? 'Yes' : 'No'}}</td>
+        <td>{{data.noCheck ? data.noCheckReason : ''}}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <div ag-grid="gridOptions" class="ag-fresh" style="height: 580px;width: 100%;margin-bottom: 1em;"></div> -->
+  <div class="buttonBlock justify-content-around align-items-center position-relative" style="width:100%">
+    <div class="buttons">
+      <a class="btn btn-primary" href="#/">Go Back</a>
+      <button ng-click="openModel()" class="btn btn-primary">Edit</button>
+    </div>
+    <div class="pagination d-flex" style="column-gap: 1em;">
+      <button ng-disabled="currentPage == 0" class="btn btn-primary" ng-click="prevPage()">Previous</button>
+      <button ng-disabled="currentPage >= pageList.length - 1" ng-click="nextPage()" class="btn btn-primary">Next</button>
+    </div>
+    <div ng-show="showTableInfo" class="d-flex align-items-center position-absolute" style="column-gap: 1em;right: 213px;top: 37%;">
+      <p class="text-primary">Total rows: {{ tableInfoData.length }}</p>
+      <p class="text-primary">Total pages: {{ pageList.length }}</p>
+    </div>
+    <div class="showHideEyeIcon">
+      <button ng-click="toggleInfo()" ng-show="showTableInfo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="#000" viewBox="0 0 24 24" stroke-width="1.5" stroke="#fff" style="width:25px;height:25px" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>      
+      </button>
+      <button ng-click="toggleInfo()" ng-show="!showTableInfo">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000" style="width:25px;height:25px" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
+        </svg>            
+      </button>
+    </div>
+  </div>

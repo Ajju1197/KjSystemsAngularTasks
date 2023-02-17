@@ -1,0 +1,208 @@
+
+<style>
+  #personForm{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+    /* padding: 20px; */
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  .form-control{
+    width: auto !important;
+  }
+  #personForm .personFormField{
+    display: flex;
+    column-gap: 1em;
+    align-items: center;
+  }
+  /* #personForm .personFormField label{
+    width: 195px;
+    color: #000;
+    text-align: right;
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  } */
+  #personForm .personFormField input::placeholder{
+    font-size: 14px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #000;
+  }
+
+  #personForm .personFormBtn{
+    display: flex;
+    justify-content: center;
+    column-gap: 10px;
+  }
+  #personForm .personFormBtn a{
+    text-decoration: none;
+  }
+  .showClass{
+    opacity: 1;
+    transition: all 0.5s linear;
+  }
+  .hideClass{
+    opacity: 0;
+    transition: all 0.5s linear;
+  }
+  .modal-content .personFormField{
+    justify-content: center;
+  }
+  /* .hideErrorMessage{
+    transform: translateY(-300px);
+    transition: all 0.5s linear;
+    transform-origin: top;
+  } */
+  .showErrorMessage{
+    position: fixed;
+    top: 150px;
+    /* right: 0;
+    left: 0;
+    margin: auto; */
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    column-gap: 150px;
+    transform: translateY(-100px);
+    transition: all 0.5s linear;
+    transform-origin: top;
+  }
+  .modal-content .showErrorMessage{
+    top: 100px;
+    left: 28%;
+  }
+  .error{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(228, 122, 122) !important;
+    color: #000;
+  }
+  .success{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(57, 231, 109);
+    color: #000;
+  }
+  .mandetory{
+    color: red;
+    margin-right: 5px;
+  }
+  .imageUploadSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.box{
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  margin-bottom: 10px;
+}
+.imageUploadPreview{
+  border: 1px solid #ccc;
+  width: 500px;
+  margin: auto;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  position: relative;
+  transition: opacity 0.3s ease-in-out;
+}
+.imageUploadPreview img{
+  width: 100%;
+  height: 100%;
+}
+.clear{
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  background-color: #fff;
+  padding: 10px;
+  z-index: 2;
+}
+
+</style>
+<div id="errorMessage" class="showErrorMessage" ng-show="errorMessage" ng-class="personForm.$valid ? 'success' : 'error'">
+  <h4 class="m-0">{{errorMessage}}</h4>
+  <div id="close" ng-click="hideAlertMessage()" style="cursor:pointer;">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000"style="width:20px;height:20px" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+    </svg>    
+  </div>
+</div>
+<form id="personForm" class="modal-content" name="personForm" ng-submit="onSubmit()" novalidate>
+  <div class="modal-header bg-primary p-2">
+    <h3 class="modal-title">Fill the User Form Details</h3>
+  </div>
+  <div class="row modal-body">
+    <div class="col-lg-6 col-sm-6 d-flex justify-content-end align-items-center">
+      <label for="">Name<span class="mandetory">* </span> :</label>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="form-group">
+        <input type="text" class="form-control" id="name" name="name" ng-model="personFormData.name" placeholder="Please Enter Name" required>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex justify-content-end align-items-center">
+      <label for="">Date of Birth<span class="mandetory">* </span> :</label>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="form-group">
+        <input type="date" class="form-control" id="dob" name="dob" ng-model="personFormData.dob" placeholder="Please Enter Date of birth" required>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex justify-content-end align-items-center">
+      <label for="">Gender<span class="mandetory">* </span> :</label>
+    </div>
+    <div class="col-lg-6 col-sm-6">
+      <div class="form-group">
+        <select type="text" class="form-control" id="gender" name="gender" ng-model="personFormData.gender" placeholder="Please Select Gender" required>
+          <option value="">-- Select Gender --</option>
+          <option value="Male">Male</option>
+          <option value="Female">FeMale</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex justify-content-end align-items-center">
+      <label>Are you willing to join<span class="mandetory" title="This field is mandetory">* </span> :</label>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex align-items-center">
+      <div class="d-flex w-100 align-items-center" style="column-gap: 15px;">
+        <label><input type="checkbox" class="form-check-input" id="yesCheck" name="yesNoCheck" ng-model="personFormData.yesCheck" ng-change="yesCheckChanged()" ng-required="!personFormData.noCheck"> Yes</label>
+        <label ><input type="checkbox" class="form-check-input" id="noCheck" name="yesNoCheck" ng-model="personFormData.noCheck" ng-change="noCheckChanged()" ng-required="!personFormData.yesCheck"> No</label>
+        <span ng-class="personFormData.noCheck ? 'showClass' : 'hideClass'">
+          <div class="form-group">
+            <textarea type="text" class="form-control" rows="1" placeholder="Please Enter a No Check Reason" id="noCheckReason" name="noCheckReason" ng-model="personFormData.noCheckReason" ng-required="!personFormData.yesCheck"></textarea>
+          </div>
+        </span>
+      </div>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex justify-content-end align-items-center">
+      <label>Upload File<span class="mandetory" title="This field is mandetory">* </span> :</label>
+    </div>
+    <div class="col-lg-6 col-sm-6 d-flex align-items-center">
+      <div class="d-flex w-100 align-items-center" style="column-gap: 15px;">
+        <input type="file" name="image" class="form-control" id="image" ng-model="personFormData.image" accept="image/*" onchange="angular.element(this).scope().uploadImage(this)" required>
+      </div>
+    </div>
+    <div class="col-lg-12 col-sm-12 my-4" ng-show="personFormData.image">
+      <div class="imageUploadPreview">
+        <img ng-src="{{personFormData.image}}" alt="Person Image">
+        <div class="clear" ng-click="clearImage()">
+          <i class="bi bi-x" style="font-size: 25px;"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="personFormBtn modal-footer">
+    <button type="submit" tabindex="07" class="btn btn-primary" id="btnSubmit" name="btnSubmit">Submit</button>
+    <a class="btn btn-primary" ng-click="modalClose()" href="#/">Go Back</a>
+    <a ng-click="modalClose()" class="btn btn-dark">Close</a>
+  </div>
+</form>

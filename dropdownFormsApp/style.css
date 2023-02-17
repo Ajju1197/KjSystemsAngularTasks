@@ -1,0 +1,25 @@
+.dropdownSection{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 60vh;
+}
+.box{
+  padding: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1em;
+  margin-bottom: 10px;
+}
+.selectedVillageNote{
+  padding: 10px;
+  border-radius: 8px;
+  margin:0px !important;
+  background-color: rgb(121, 245, 121);
+}
+.selectedVillageNote p{
+  margin: 0 !important;
+  color: #000000;
+}

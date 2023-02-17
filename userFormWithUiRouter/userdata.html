@@ -1,0 +1,33 @@
+<style>
+  .buttonBlock{
+    display: flex;
+    column-gap: 10px;
+  }
+</style>
+<div class="p-4">
+  <div class="personInfoData">
+    <table class="table">
+      <tr>
+        <th>Sl No</th>
+        <th>Name</th>
+        <th>DOB</th>
+        <th>Gender</th>
+        <th>Willingness to Join</th>
+        <th>No Willing Reason</th>
+      </tr>
+      <tr ng-repeat="data in personInfoData">
+        <td>{{$index + 1}}</td>
+        <td>{{formData.name}}</td>
+        <td>{{formData.dob | date:'MM/dd/yyyy'}}</td>
+        <td>{{formData.gender}}</td>
+        <td>{{formData.yesCheck ? 'Yes' : 'No'}}</td>
+        <td>{{formData.noCheck ? formData.noCheckReason : ''}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="buttonBlock justify-content-center">
+    <a class="btn btn-primary" ui-sref="userform">Go to UserForm</a>
+    <a class="btn btn-primary" ui-sref="home">Go Back</a>
+    <a class="btn btn-primary" ng-click="openModel()">Open UserForm</a>
+  </div>
+</div>
