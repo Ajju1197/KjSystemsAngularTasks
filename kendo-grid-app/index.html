@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Untitled</title>
+
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.common.min.css">
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.rtl.min.css">
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.default.min.css">
+  <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2018.1.221/styles/kendo.mobile.all.min.css">
+
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/angular.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/jszip.min.js"></script>
+  <script src="https://kendo.cdn.telerik.com/2018.1.221/js/kendo.all.min.js"></script></head>
+  <script src="./script.js"></script>
+<body ng-app="kendoGridAppModule">
+    <div ng-controller="kendoGridAppCtrl">
+      <div kendo-grid k-options="gridOptions"></div>
+    </div>
+    <div ng-controller="MyCtrl">
+      <div kendo-grid k-options="gridOptions"></div>
+      <!-- <div kendo-list-view k-data-source="source">
+        <div class="product" k-template>      
+            <p>{{ dataItem.data }}</p>
+        </div>
+      </div> -->
+    </div>
+</body>
+</html>

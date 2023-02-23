@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Ag Grid Grouping App</title>
+  <!-- Include the core CSS, this is needed by the grid -->
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-enterprise@29.1.0/styles/ag-grid.css" />
+<link rel="stylesheet" href="https://unpkg.com/ag-grid-enterprise@29.1.0/styles/ag-theme-alpine.css" />
+<link rel="stylesheet" href="./style.css">
+</head>
+
+<body ng-app="studentListGroupingModule">
+  
+  <div ng-controller="studentListGroupingCtrl">
+    <div class="heading">
+      <h2>Ag Grid Student List Grouping</h2>
+    </div>
+    <div id="agGridGrouping" class="ag-theme-alpine"></div>
+  </div>
+
+  <script src="https://unpkg.com/ag-grid-enterprise@21.2.1/dist/ag-grid-enterprise.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.0/angular.min.js"></script>
+  <script src="script.js"></script>
+</body>
+
+</html>

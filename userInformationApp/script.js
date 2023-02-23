@@ -153,8 +153,11 @@ app.controller('personFormController', function ($scope,userInfoService,$locatio
   }
 })
 app.controller('personInfoController', function ($scope, userInfoService, $uibModal) {
+  // Getting Data for table
   $scope.tableInfoData = userInfoService.getData();
   console.log($scope.tableInfoData);
+
+  // Getting Data for agGRid
   $scope.personInfoData = userInfoService.getData().map(function (user, index) {
     user.serialNo = index + 1;
     return {
@@ -169,8 +172,9 @@ app.controller('personInfoController', function ($scope, userInfoService, $uibMo
   });
   console.log($scope.personInfoData);
 
+  // Pagination Code
   $scope.currentPage = 0;
-  $scope.pageSize = 3;
+  $scope.pageSize = 10;
   $scope.pageList = [];
 
   $scope.showTableInfo = false;
@@ -204,6 +208,7 @@ app.controller('personInfoController', function ($scope, userInfoService, $uibMo
   };
   
 
+  // Ag Grid Columns
   var columnDefs = [
     {
       headerName: "Sl No",

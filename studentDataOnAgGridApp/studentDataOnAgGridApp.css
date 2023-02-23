@@ -1,0 +1,80 @@
+*,body{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  position: relative;
+}
+
+#studentInfoAgGrid{
+  height: 580px;
+  width:100%
+}
+.selectDropDown{
+  width:12%;
+}
+@media (max-width: 1020px) {
+  .selectDropDown{
+    width: 30%;
+  }
+}
+@media (max-width: 576px) {
+  .selectDropDown{
+    width: 50%;
+  }
+}
+.mainClass{
+  width: 90%;
+  margin: auto;
+  padding: 1em 0;
+}
+
+.ag-theme-alpine{
+  height: 500px;
+  width: 100%;
+  margin: auto;
+  --ag-row-hover-color: rgba(33, 150, 243, 0.1);
+  --ag-column-hover-color: none;
+  --ag-header-column-resize-handle-color: orange;
+  --ag-font-size: 15px;
+}
+@media (max-width: 767px) {
+  .ag-theme-alpine{
+    height: 400px !important;
+  }
+}
+
+  .ag-theme-alpine .ag-header-group-cell {
+    font-weight: normal;
+    font-size: 16px;
+  }
+  .ag-theme-alpine .ag-header-cell {
+    font-size: 16px;
+  }
+  .ag-theme-alpine .ag-icon-expanded,.ag-icon-contracted {
+    color: #000000 !important;
+  }
+  .ag-row-focus {
+    background-color: #76b852 !important;
+  }
+  .ag-theme-alpine .ag-icon {
+    color: #fff;
+  }
+  .ag-column-hover{
+    background-color: none !important;
+  }
+  .ag-header-cell {
+  --ag-header-background-color: #0072c5;
+    border-style: solid !important;
+    border-width: 0px 0px 1px 1px !important;
+    background-color: #0072c5;
+    color: white !important;
+    font-weight: 400;
+    text-align: center !important;
+    line-height: 21px !important;
+    border-color: #c5c5c5;
+}
+.ag-theme-balham .ag-ltr .ag-cell { 
+  border-right: 1px solid #aaa; 
+}
