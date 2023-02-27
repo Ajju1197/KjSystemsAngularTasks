@@ -1,0 +1,183 @@
+
+<style type="text/css">
+  .modal-content{
+    padding: 0 2em;
+  }
+  .modal-content .employeeAddClass{
+    /* width: 80%; */
+  }
+  .employeeAddClass{
+  /* width:40%;
+  margin: auto;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  padding: 2em;
+  border-radius: 4px; */
+}
+.imageUploadPreview{
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  border: 6px solid lime;
+  overflow: hidden;
+  margin: auto;
+  margin-bottom: 1em;
+  position: relative;
+}
+.imageUploadPreview img{
+  width: 100%;
+  height: 100%;
+}
+.imageUploadPreview .clear{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 5;
+}
+.error{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(228, 122, 122) !important;
+    color: #000;
+  }
+  .success{
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgb(57, 231, 109);
+    color: #000;
+  }
+    .showErrorMessage{
+    position: fixed;
+    top: 150px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    column-gap: 150px;
+    transform: translateY(-100px);
+    transition: all 0.5s linear;
+    transform-origin: top;
+  }
+  .modal-content .showErrorMessage{
+    top: 16%;
+    left: 0;
+    width: fit-content;
+    margin: auto;
+    right: 0;
+  }
+</style>
+
+<div class="py-5">
+  <div id="errorMessage" class="showErrorMessage" ng-show="errorMessage" ng-class="personForm.$valid ? 'success' : 'error'">
+    <h4 class="m-0">{{errorMessage}}</h4>
+    <div id="close" ng-click="hideAlertMessage()" style="cursor:pointer;">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#000000" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000"style="width:20px;height:20px" class="w-6 h-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+      </svg>    
+    </div>
+  </div>
+  <form id="employeeAddId" name="employeeForm" class="employeeAddClass my-5" ng-submit="onSubmit()" novalidate>
+    <div class="modal-header mb-4">
+      <h3 class="text-primary">Please Fill the Employee Details</h3>
+    </div>
+    <div ng-show="employeeModalData.image">
+      <div class="imageUploadPreview">
+        <img ng-src="{{employeeModalData.image}}" alt="employee Image">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="text" name="name" class="form-control" id="name" ng-model="employeeModalData.name" required>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="gender">Gender</label>
+          <select type="text" name="gender" class="form-control" id="gender" ng-model="employeeModalData.gender" required>
+            <option value="">-- Select Gender --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12">
+        <div class="form-group">
+          <label for="dob">Date of Birth</label>
+          <input type="date" name="dob" class="form-control" id="dob" ng-change="updateAge()" ng-model="employeeModalData.dob" placeholder="Please Enter Date of birth" required>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="age">Age</label>
+          <input type="text" name="age" class="form-control" id="age" maxlength="3" minlength="0" ng-keypress="numCheckInputField($event)" readonly ng-model="employeeModalData.age" required>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="job_title">Job</label>
+          <select type="text" name="job_title" class="form-control" id="job_title" ng-model="employeeModalData.job_title" required>
+            <option value="">-- Select Job --</option>
+            <option value="SalesManager">Sales Manager</option>
+            <option value="MarketingCoordinator">Marketing Coordinator</option>
+            <option value="SeniorAccountant">Senior Accountant</option>
+            <option value="CustomerServiceRepresentative">Customer Service Representative</option>
+            <option value="ITManager">IT Manager</option>
+            <option value="HumanResourcesGeneralist">Human Resources Generalist</option>
+            <option value="OperationsDirector">Operations Director</option>
+            <option value="GraphicDesigner">Graphic Designer</option>
+            <option value="ProductionSupervisor">Production Supervisor</option>
+            <option value="QualityAssuranceSpecialist">Quality Assurance Specialist</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="department">Department</label>
+          <select type="text" name="department" class="form-control" id="department" ng-model="employeeModalData.department" required>
+            <option value="">-- Select Department --</option>
+            <option value="Sales">Sales</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Accounting">Accounting</option>
+            <option value="CustomerService">Customer Service</option>
+            <option value="InformationTechnology">Information Technology</option>
+            <option value="HumanResources">Human Resources</option>
+            <option value="Operations">Operations</option>
+            <option value="CreativeServices">Creative Services</option>
+            <option value="Production">Production</option>
+            <option value="Quality Assurance">Quality Assurance</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-6 col-sm-12">
+        <div class="form-group">
+          <label for="salary">Salary</label>
+          <select type="text" name="salary" class="form-control" id="salary" ng-model="employeeModalData.salary" required>
+            <option value="">-- Select Salary --</option>
+            <option value="75,000">$75,000</option>
+            <option value="45,000">$45,000</option>
+            <option value="85,000">$85,000</option>
+            <option value="35,000">$35,000</option>
+            <option value="95,000">$95,000</option>
+            <option value="50,000">$50,000</option>
+            <option value="100,000">$100,000</option>
+            <option value="60,000">$60,000</option>
+            <option value="75,000">$75,000</option>
+            <option value="45,000">$45,000</option>
+          </select>
+        </div>
+      </div>
+      <div class="col-lg-6 col-sm-12">
+        <div class="form-group">
+          <label for="image">Upload Image</label>
+          <input type="file" name="image" class="form-control" id="image" ng-model="employeeModalData.image" accept="image/*" onchange="angular.element(this).scope().uploadImage(this)" required>
+        </div>
+      </div>
+      <div class="col-lg-12 col-sm-12">
+        <div class="form-group">
+          <button class="btn btn-primary">Submit</button>
+          <a class="btn btn-primary" ng-click="closeModal()">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

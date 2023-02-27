@@ -112,7 +112,7 @@ studentDataOnAgGridAppModule.controller('studentDataOnAgGridAppCtrl', function (
       {
         field:'studentId',
         headerName:'Student Id',
-        width: 60
+        width: 60,
       },
       {
         field: 'studentName', 

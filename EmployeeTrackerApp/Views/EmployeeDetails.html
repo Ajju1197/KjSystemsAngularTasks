@@ -1,0 +1,67 @@
+
+<style type="text/css">
+  .employeeDetailsClass{
+    display: flex;
+    column-gap: 3em;
+    justify-content: center;
+    align-items: center;
+    background-color: #050a5c;
+    color: #fff;
+  }
+  @media (max-width: 768px) {
+    .employeeDetailsClass{
+      flex-direction: column;
+      row-gap: 2em;
+    }
+  }
+  .employeeImg{
+    height: 500px;
+    width: 60%;
+  }
+  .employeeImg img{
+    width:100%;
+    height:100%;
+    object-fit: cover;
+  }
+  .employeeDetails{
+    padding: 1em;
+  }
+  .employeeHeading{
+    display: flex;
+    flex-direction: column;
+    row-gap: 1em;
+  }
+</style>
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/about-header.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+    <h2>Employee Details</h2>
+    <ol>
+      <li><a href="#/">Home</a></li>
+      <li>Employee Details</li>
+    </ol>
+  </div>
+</div>
+<div class="container-fluid py-5">
+  <div class="employeeDetailsClass" ng-if="employee">
+    <div class="employeeImg">
+      <img ng-src="{{employee.image}}" alt="">
+    </div>
+    <div class="employeeDetails">
+      <div class="employeeHeading">
+        <h1>{{employee.name}}</h1>
+        <p>{{employee.job_title}}</p>
+        <p>Age : {{employee.age}}</p>
+        <p>Date of Birth : {{employee.dob | date:'dd/MM/yyyy'}}</p>
+        <p>Gender : {{employee.gender}}</p>
+        <p>Department : {{employee.department}}</p>
+        <p>Salary : {{employee.salary}}</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum nesciunt esse et? Dolore tempore eum quibusdam consectetur corporis nulla ducimus velit officia facere, eveniet dolorum ipsam neque facilis sapiente ut?</p>
+      </div>
+      <a class="btn btn-success mt-3" ng-click="goBack()">Go Back</a>
+    </div>
+  </div>
+  <div ng-show="!employee" style="padding:1em;background-color:#050a5c;text-align: center;">
+    <p style="font-size:20px;text-align:center;color:#fff;">Employee not found</p>
+    <a class="btn btn-success mt-3" ng-click="goBack()">Go Back</a>
+  </div>
+</div>

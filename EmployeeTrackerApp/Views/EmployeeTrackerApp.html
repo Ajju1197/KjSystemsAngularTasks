@@ -1,0 +1,104 @@
+<section id="hero" class="hero d-flex align-items-center">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xl-4">
+        <h2>Employee Management System</h2>
+        <blockquote>
+          <p>Meet our talented team of professionals who are dedicated to delivering the best results for our clients.
+          </p>
+        </blockquote>
+        <div class="d-flex">
+          <a href="#/employee-view-in-ag-grid" class="btn-get-started">Get Started</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="about" class="about">
+    <div class="about-block">
+        <div class="img-block">
+          <img src="assets/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg" alt="">
+        </div>
+        <div class="about-content">
+          <div class="section-heading">
+            <h2>About Us</h2>
+            <p class="text-primary mt-3">Learn More About Us</p>
+            <p class="mt-2">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsa, commodi atque? Quis natus maiores mollitia, magnam cumque minus aliquam doloribus.</p>
+          </div>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Amet, nesciunt maxime dolor, sequi minus eos in itaque id inventore, omnis rerum tempora mollitia vitae dolorum exercitationem necessitatibus odio architecto hic.</p>
+        </div>
+    </div>
+</section>
+<section id="our-team" class="our-team py-5">
+  <div class="container-fluid">
+    <div class="section-heading text-center py-5">
+      <h2>Our Team</h2>
+      <p class="text-primary mt-3">Check Our Team</p>
+    </div>
+    <div class="team-cards-block">
+      <div class="card" ng-repeat="team in teamData">
+        <div class="card__image">
+          <img ng-src="{{team.image}}" alt="{{team.name}}">
+        </div>
+        <div class="card__content">
+          <p class="card__title">{{team.name}}</p>
+          <p class="card__text">{{team.job_title}}</p>
+          <div class="action-btns">
+            <a class="card__button">Read More</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="contact" class="contact py-5">
+  <div class="container-fluid">
+    <div class="section-heading text-center py-5">
+      <h2>Contact</h2>
+      <p class="text-primary mt-3">Please fill the Employee Details</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-7 col-md-7 col-sm-12">
+        <div class="location">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15301.809605474742!2d80.6588988!3d16.5032429!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35fac8958817cf%3A0x5f608eb1ab0cb36d!2sSoftware%20Technology%20Parks%20of%20India!5e0!3m2!1sen!2sin!4v1677489790807!5m2!1sen!2sin" style="border:0;width:100%;height: 100%;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+      <div class="col-lg-5 col-md-5 col-sm-12">
+        <div class="box">
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" id="name" name="name" placeholder="Enter Name" class="form-control" ng-model="name" required>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="email" id="email" email="email" placeholder="Enter Email" class="form-control" ng-model="email" required>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" id="number" name="number" placeholder="Enter Phone Number" class="form-control" ng-model="number" required>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-12">
+              <div class="form-group">
+                <input type="text" id="address" address="address" placeholder="Enter Address" class="form-control" ng-model="address" required>
+              </div>
+            </div>
+            <div class="col-lg-12 col-md-12 col-sm-12">
+              <div class="form-group">
+                <textarea type="text" id="description" address="description" placeholder="Message" class="form-control" ng-model="description" rows="2"></textarea>
+              </div>
+            </div>
+            <div class="col-lg-12 col-sm-12 text-center">
+              <div class="form-group">
+                <button class="btn btn-primary text-center">Submit</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

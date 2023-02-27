@@ -1,0 +1,89 @@
+<style>
+  .addEmployeeListAndSelectClass{
+  width:100%;
+  margin: auto;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+/* AG Grid Styles */
+
+.employeeListClass{
+  width: 100%;
+  /* height: 100%; */
+  margin: auto;
+  margin-top: 2em;
+}
+.ag-theme-alpine{
+  height: 400px;
+  width: 100%;
+  margin: auto;
+  --ag-row-hover-color: rgba(33, 150, 243, 0.1);
+  --ag-column-hover-color: none;
+  --ag-header-column-resize-handle-color: #fff;
+  --ag-font-size: 15px;
+}
+@media (max-width: 767px) {
+  .ag-theme-alpine{
+    height: 400px !important;
+  }
+}
+
+  .ag-theme-alpine .ag-header-group-cell {
+    font-weight: normal;
+    font-size: 16px;
+  }
+  .ag-theme-alpine .ag-header-cell {
+    font-size: 16px;
+  }
+  .ag-theme-alpine .ag-icon-expanded,.ag-icon-contracted {
+    color: #000000 !important;
+  }
+  .ag-row-focus {
+    background-color: #76b852 !important;
+  }
+  .ag-theme-alpine .ag-icon {
+    color: #fff;
+  }
+  .ag-column-hover{
+    background-color: none !important;
+  }
+  .ag-header-cell {
+  --ag-header-background-color: #0072c5;
+    border-style: solid !important;
+    border-width: 0px 0px 1px 1px !important;
+    background-color: #0072c5;
+    color: white !important;
+    font-weight: 400;
+    text-align: center !important;
+    line-height: 21px !important;
+    border-color: #c5c5c5;
+}
+.ag-theme-alpine .ag-ltr .ag-cell { 
+  border-right: 1px solid #aaa; 
+}
+</style>
+<div class="breadcrumbs d-flex align-items-center" style="background-image: url('assets/about-header.jpg');">
+  <div class="container position-relative d-flex flex-column align-items-center">
+    <h2>Employee List</h2>
+    <ol>
+      <li><a href="#/">Home</a></li>
+      <li>Employee List</li>
+    </ol>
+  </div>
+</div>
+
+<div class="container-fluid py-5">
+  <div class="addEmployeeListAndSelectClass">
+    <div class="selectDropDownClass">
+      <label>Select Student Gender</label>
+            <select name="selectEmployeeList" id="studentInfo" ng-init="selectEmployeeList = 'All'" class="form-control selectDropDown" ng-model="selectEmployeeList" ng-options="employeeListOption for employeeListOption in employeeListOptions"></select>
+    </div>
+    <div class="addEmployeeBtn">
+      <button class="btn btn-success" ng-click="openAddEmployeeModal()">Add Employee</button>
+    </div>
+  </div>
+  <div class="employeeListClass">
+    <div id="employeeListGrid" ag-grid="employeeListGridOptions" class="ag-theme-alpine"></div>
+  </div>
+</div>

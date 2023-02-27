@@ -1,0 +1,486 @@
+:root {
+  --font-default: "Open Sans", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-primary: "Montserrat", sans-serif;
+  --font-secondary: "Raleway", sans-serif;
+}
+
+/* Colors */
+:root {
+  --color-default: #2b180d;
+  --color-primary: #56b8e6;
+  --color-secondary: #1b2f45;
+}
+
+/* Smooth scroll behavior */
+:root {
+  scroll-behavior: smooth;
+}
+
+*,body{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+h1,h2,h3,h4,h5,h6,p,span{
+  margin: 0 !important;
+}
+.EmployeeTrackerAppCtrlClass{
+  display: flex;
+  height: 100vh;
+  flex-direction: column;
+}
+header{
+  flex:0;
+  transition: all 0.5s linear;
+}
+header .header-links{
+  display: flex;
+  column-gap: 2em;
+}
+header .header-links a{
+  color: #fff;
+  text-decoration: none;
+}
+header .header-links a:hover{
+  text-decoration: none;
+}
+main{
+  flex:1;
+}
+main .mainClass{
+  height: 100%;
+  /* width: 90%; */
+  margin: auto;
+}
+footer{
+  display: flex;
+  flex:0;
+  background-color: #f6f9ff;
+  justify-content: center;
+}
+.footer-main{
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin: auto;
+}
+
+.logo-text{
+  text-decoration: none !important;
+}
+.logo-text:hover{
+  text-decoration: none !important;
+}
+
+.selectDropDownClass{
+  width:15%;
+}
+@media (max-width:768px) {
+  .selectDropDownClass{
+    width:40% !important;
+  }
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo-icon {
+  background-color: #fff;
+  overflow: hidden;
+  color: #fff;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.scroll-top .logo-icon{
+  background-color: #1b2f45;
+}
+
+.logo-icon i {
+  font-size: 40px;
+}
+
+.logo-text h1 {
+  font-size: 28px;
+  margin: 0;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.logo-text h2 {
+  font-size: 14px;
+  color: #56b8e6;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin-top: 12px !important;
+}
+
+/* Footer */
+footer {
+  background-color: #f8f9fa;
+  padding: 40px 0;
+  font-size: 16px;
+}
+/* Hero SEction */
+
+.hero {
+  width: 100%;
+  min-height: 100vh;
+  background: url("./assets/marvin-meyer-SYTO3xs06fU-unsplash.webp") top center;
+  background-size: cover;
+  position: relative;
+  padding: 120px 0;
+  z-index: 3;
+}
+
+@media (min-width: 1034px) {
+  .hero:after {
+    position: absolute;
+    content: "";
+    width: 40%;
+    background: #1b2f45;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+}
+
+.hero:before {
+  position: absolute;
+  content: "";
+  background: rgba(27, 47, 69, 0.6);
+  inset: 0;
+  z-index: -1;
+}
+
+@media (max-width: 1034px) {
+  .hero:before {
+    background: rgba(27, 47, 69, 0.7);
+  }
+}
+
+.hero .container {
+  z-index: 1;
+}
+
+@media (min-width: 1365px) {
+  .hero {
+    background-attachment: fixed;
+  }
+}
+
+.hero h2 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #fff;
+  font-family: var(--font-secondary);
+}
+
+.hero blockquote {
+  color: #fff;
+  padding-left: 20px;
+  font-size: 15px;
+  font-family: var(--font-default);
+  border-left: 2px solid var(--color-primary);
+  margin: 40px 0;
+}
+
+.hero .btn-get-started {
+  font-family: var(--font-secondary);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 12px 30px;
+  border-radius: 50px;
+  transition: 0.5s;
+  color: #fff;
+  background: var(--color-primary);
+}
+
+.hero .btn-get-started:hover {
+  background: rgba(86, 184, 230, 0.8);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .hero h2 {
+    font-size: 36px;
+    line-height: 1;
+  }
+
+  .hero .btn-get-started {
+    font-size: 13px;
+  }
+}
+
+/*-------------------------------------------------------------- Breadcrumbs  --------------------------------------------------------------*/
+.breadcrumbs {
+  padding: 140px 0 60px 0;
+  min-height: 30vh;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.breadcrumbs:before {
+  content: "";
+  background-color: rgba(27, 47, 69, 0.7);
+  position: absolute;
+  inset: 0;
+}
+
+.breadcrumbs h2 {
+  font-size: 56px;
+  font-weight: 500;
+  color: #fff;
+  font-family: var(--font-secondary);
+}
+
+.breadcrumbs ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.breadcrumbs ol a {
+  color: rgba(255, 255, 255, 0.8);
+  transition: 0.3s;
+}
+
+.breadcrumbs ol a:hover {
+  text-decoration: underline;
+}
+
+.breadcrumbs ol li+li {
+  padding-left: 10px;
+}
+
+.breadcrumbs ol li+li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #fff;
+  content: "/";
+}
+/* Scroll top */
+.scroll{
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #1b2f45;
+  width: 50px;
+  height: 50px;
+  transition: all 0.5s linear;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  z-index: 99999;
+}
+.scroll .bi{
+  font-size: 30px;
+  color: #fff;
+}
+.scroll-top{
+  position: fixed;
+  background-color: #fff;
+  transition: all 0.5s linear;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  padding: 2px;
+}
+.scroll-top .header-links a{
+  color: #000;
+}
+.scroll-top .logo-text h1 {
+  color: #1b2f45;
+}
+
+/* About */
+#about{
+  /* padding: 3em 0; */
+  position: relative;
+  background: #1b2f45;
+}
+.about-block{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 2em;
+}
+.about-content{
+  position: relative;
+  z-index: 2;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5em;
+}
+
+
+.img-block{
+  height: 100%;
+  width:100%;
+}
+img{
+  width:100%;
+  height:100%;
+}
+
+.section-heading h2{
+  font-size: 30px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* Employee Card Block */
+.team-cards-block{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  flex-wrap: wrap;
+}
+.card {
+  position: relative;
+  width: 1fr;
+  height: 400px;
+  margin: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card__content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  transition: transform 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+}
+
+.card__title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.card__text {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 20px !important;
+}
+
+.card__button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #000;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+.card__button:nth-child(3){
+  background-color: red;
+  cursor: pointer;
+}
+.card__button:nth-child(2){
+  background-color: yellow;
+  cursor: pointer;
+  color: #000;
+}
+.card__button:hover:nth-child(2){
+  background-color: yellow;
+  cursor: pointer;
+  color: #000 !important;
+}
+.card__button:hover{
+  text-decoration: none;
+  color: #fff;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.card:hover .card__image img {
+  transform: scale(1.2);
+}
+.card .card__content{
+  transform: translateY(63%);
+}
+
+.card:hover .card__content {
+  transform: translateY(0%);
+}
+
+.card__image {
+  height: 400px;
+  width: 100%;
+  background-color: #000;
+}
+
+
+/* Contact */
+.contact .employeeAddClass .modal-header{
+  display: none;
+}
+.location{
+  height: 100%;
+}
+.box{
+  padding: 2em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.box input,.box textarea{
+  border: 1px solid blue;
+  border-radius: 0px !important;
+}
+.box input{
+  padding: 1.5em;
+}
+.box ::placeholder{
+  color: #1b2f45;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 8px;
+  background-color: #aaa; /* or add it to the track */
+}
+::-webkit-scrollbar-thumb {
+  background: #1b2f45;
+}
